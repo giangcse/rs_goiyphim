@@ -5,6 +5,7 @@ from texttable import Texttable
 
 import pandas as pd
 import numpy as np
+import json
 import math
 import os
 
@@ -66,15 +67,15 @@ def prediction(id):
     recommended_list = []
     for i in max_cosine[0]:
         recommended_dict = {}
-        recommended_dict = {"id": movies.movieId[i], "title": movies.title[i],
-                            "genres": movies.genres[i], "rating": movies.rating[i]}
+        recommended_dict = {"id": int(movies.movieId[i]), "title": movies.title[i],
+                            "genres": movies.genres[i], "rating": int(movies.rating[i])}
         # Thêm vào danh sách thông tin phim dạng dict
         recommended_list.append(recommended_dict)
     # Sắp xếp theo độ giảm dần của rating
     recommended_list = sorted(
         recommended_list, key=itemgetter('rating'), reverse=True)
 
-    return recommended_list
+    return json.loads(json.dumps(recommended_list))
 
 
 if __name__ == "__main__":

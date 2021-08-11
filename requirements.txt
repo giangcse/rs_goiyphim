@@ -3,3 +3,5 @@ sklearn
 texttable
 pandas
 numpy
+fastapi
+pydantic
