@@ -5,3 +5,4 @@ pandas
 numpy
 fastapi
 pydantic
+uvicorn
