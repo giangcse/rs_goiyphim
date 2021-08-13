@@ -75,7 +75,7 @@ def prediction(id):
     recommended_list = sorted(
         recommended_list, key=itemgetter('rating'), reverse=True)
 
-    return json.loads(json.dumps(recommended_list))
+    return json.loads(json.dumps(recommended_list[:100]))
 
 
 if __name__ == "__main__":
